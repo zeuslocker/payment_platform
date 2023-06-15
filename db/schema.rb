@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_145639) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_104245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "pgcrypto"
@@ -24,6 +24,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_145639) do
     t.decimal "total_transaction_sum", precision: 8, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.decimal "amount", precision: 8, scale: 2, null: false
+    t.string "type", null: false
+    t.integer "status", default: 0, null: false
+    t.string "customer_email", null: false
+    t.string "customer_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_transactions_on_ancestry"
   end
 
 end
