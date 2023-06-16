@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 gem 'phonelib'
 gem 'ancestry'
 gem 'devise'
+gem 'smarter_csv'
+gem 'activerecord-import'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -53,6 +55,9 @@ gem 'devise'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry'
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
