@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_105445) do
     t.decimal "total_transaction_sum", precision: 8, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_merchants_on_email", unique: true
   end
 
   create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_105445) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_transactions_on_ancestry"
+    t.index ["customer_email"], name: "index_transactions_on_customer_email", unique: true
   end
 
 end

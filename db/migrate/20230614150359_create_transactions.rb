@@ -11,5 +11,7 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :transactions, :customer_email, unique: true
   end
 end
