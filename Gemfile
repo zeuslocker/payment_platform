@@ -49,6 +49,7 @@ gem 'devise'
 gem 'phonelib'
 gem 'smarter_csv'
 gem 'whenever', require: false
+gem 'slim'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
