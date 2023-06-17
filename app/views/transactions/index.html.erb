@@ -1,2 +1,11 @@
-<h1>V1::Transactions#index</h1>
-<p>Find me in app/views/v1/transactions/index.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<h1>Transactions</h1>
+
+<div id="transactions">
+  <% @transactions.each do |transaction| %>
+    <%= render partial: 'transaction', object: transaction %>
+  <% end %>
+</div>
+
+<%= link_to "New transaction", new_transaction_path %>
